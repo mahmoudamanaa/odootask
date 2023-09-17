@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_school_lesson_form" model="ir.ui.view">
+        <field name="name">school.lesson.form</field>
+        <field name="model">school.lesson</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="subject" />
+                        <field name="lesson" />
+                        <field name="student_id" />
+                        <field name="teacher_id" />
+                        <field name="active" invisible="1" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_school_lesson_tree" model="ir.ui.view">
+        <field name="name">school.lesson.tree</field>
+        <field name="model">school.lesson</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="subject" />
+                <field name="lesson" />
+                <field name="student_id" />
+                <field name="teacher_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_school_lesson_search" model="ir.ui.view">
+        <field name="name">school.lesson.search</field>
+        <field name="model">school.lesson</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="subject" />
+                <field name="lesson" />
+                <field name="student_id" />
+                <field name="teacher_id" />
+                <separator />
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_school_lesson" model="ir.actions.act_window">
+        <field name="name">Lessons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.lesson</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_lessons" name="Lessons" parent="menu_school_operations" action="action_school_lesson" groups="base.group_user" sequence="10" />
+</odoo>

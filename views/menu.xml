@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_school_root" name="School" groups="base.group_user" sequence="10" />
+
+    <menuitem id="menu_school_operations" name="Operations" parent="menu_school_root" groups="base.group_user" sequence="10" />
+
+    <menuitem id="menu_school_lessons" name="Lessons" parent="menu_school_operations" groups="base.group_user" sequence="10" />
+
+    <menuitem id="menu_school_teachers" name="Teachers" parent="menu_school_operations" groups="base.group_user" sequence="10" />
+
+    <menuitem id="menu_school_students" name="Students" parent="menu_school_operations" groups="base.group_user" sequence="10" />
+</odoo>
